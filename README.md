@@ -2,6 +2,8 @@
 
 **Sanghvily** is a modern, AI-powered system-wide dictation tool for Windows. It allows you to use your voice to type anywhere, instantly, using the power of Groq's high-performance LLM inference (Whisper).
 
+[![Download Latest Release](https://img.shields.io/github/v/release/PranavSanghvi/Sanghvily?style=for-the-badge&label=Download%20Installer&color=blue)](https://github.com/PranavSanghvi/Sanghvily/releases/latest)
+
 ![Sanghvily App](resources/icon.png)
 
 ## Features
