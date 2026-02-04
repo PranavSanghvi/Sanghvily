@@ -79,4 +79,4 @@ To create the Windows Installer (`.exe`):
 MIT License. See [LICENSE](LICENSE) for details.
 
 ---
-Developed by [Pranav Sanghvi](https://pranavsanghvimd.com)
+Developed by [Pranav Sanghvi](https://github.com/PranavSanghvi/)
