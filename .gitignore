@@ -1,0 +1,12 @@
+node_modules
+dist
+out
+.DS_Store
+.eslintcache
+*.log*
+python/venv/
+python/build/
+python/dist/
+python/__pycache__/
+*.spec
+resources/python/
