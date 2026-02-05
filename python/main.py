@@ -12,7 +12,7 @@ try:
     from hotkey import HotkeyListener
     from audio import AudioRecorder
     from transcriber import Transcriber
-    from injector import inject_text
+    from injector import inject_text, capture_focus
 except ImportError as e:
     print(json.dumps({"event": "error", "message": f"Import Error: {e}"}))
     sys.stdout.flush()
@@ -45,6 +45,10 @@ def main():
         # print_json({"event": "debug", "msg": "Hotkey Pressed"})
         if processing_lock.locked():
             return
+        
+        # Capture focus BEFORE we start recording (so we know where to inject later)
+        capture_focus()
+        
         print_json({"event": "recording_started"})
         recorder.start()
 

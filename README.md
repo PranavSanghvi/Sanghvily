@@ -8,7 +8,7 @@
 
 ## Features
 
--   **System-Wide Dictation**: Use `Ctrl + Win` (hold) to record, and release to transcribe.
+-   **System-Wide Dictation**: Use `Ctrl + Shift + Space` (hold) to record, and release to transcribe.
 -   **Lighting Fast**: Powered by Groq Cloud for near-instant transcription.
 -   **Smart Context**: Define custom vocabulary or context prompts to improve accuracy for niche terms (medical, coding, etc.).
 -   **Modern UI**: Sleek, glassmorphic interface built with React and Tailwind CSS.

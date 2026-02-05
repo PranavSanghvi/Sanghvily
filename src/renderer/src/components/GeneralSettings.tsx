@@ -1,4 +1,4 @@
-import { Keyboard, Mic, LayoutGrid } from 'lucide-react'
+import { Keyboard, Mic } from 'lucide-react'
 
 interface GeneralSettingsProps {
   status: string
@@ -77,8 +77,12 @@ export function GeneralSettings({ status, appStatus }: GeneralSettingsProps) {
                         Ctrl
                     </kbd>
                     <span className="text-zinc-300 text-sm font-medium">+</span>
-                    <kbd className="min-w-[32px] h-8 px-1.5 flex items-center justify-center bg-zinc-50 border border-zinc-200 border-b-2 rounded-lg text-zinc-500 font-mono font-bold shadow-sm transition-transform active:translate-y-0.5 active:border-b active:shadow-none" title="Windows">
-                        <LayoutGrid size={16} strokeWidth={2.5} />
+                    <kbd className="min-w-[42px] h-8 px-2 flex items-center justify-center bg-zinc-50 border border-zinc-200 border-b-2 rounded-lg text-zinc-500 text-xs font-mono font-bold shadow-sm transition-transform active:translate-y-0.5 active:border-b active:shadow-none" title="Shift">
+                        Shift
+                    </kbd>
+                    <span className="text-zinc-300 text-sm font-medium">+</span>
+                    <kbd className="min-w-[48px] h-8 px-2 flex items-center justify-center bg-zinc-50 border border-zinc-200 border-b-2 rounded-lg text-zinc-500 text-xs font-mono font-bold shadow-sm transition-transform active:translate-y-0.5 active:border-b active:shadow-none" title="Space">
+                        Space
                     </kbd>
                 </div>
             </div>

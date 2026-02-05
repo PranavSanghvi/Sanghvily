@@ -28,8 +28,9 @@ class HotkeyListener:
         while self.running:
             try:
                 ctrl_down = keyboard.is_pressed('ctrl')
-                win_down = keyboard.is_pressed('windows')
-                is_down = ctrl_down and win_down
+                shift_down = keyboard.is_pressed('shift')
+                space_down = keyboard.is_pressed('space')
+                is_down = ctrl_down and shift_down and space_down
             except Exception as e:
                 print(f"Hotkey: Error checking keys: {e}")
                 is_down = False
