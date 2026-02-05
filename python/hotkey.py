@@ -9,6 +9,26 @@ class HotkeyListener:
         self.running = False
         self._thread = None
         self.is_active = False
+        # Default hotkey: Ctrl+Shift+Space
+        self.keys = ['ctrl', 'shift', 'space']
+
+    def set_hotkey(self, key_string):
+        """
+        Set a new hotkey from a string like "ctrl+shift+a".
+        """
+        if not key_string:
+            return
+        
+        # Parse the hotkey string into a list of keys
+        new_keys = [k.strip().lower() for k in key_string.split('+')]
+        
+        # Validation: require at least 2 keys
+        if len(new_keys) < 2:
+            print(f"Hotkey: Invalid - need at least 2 keys, got {len(new_keys)}")
+            return
+        
+        self.keys = new_keys
+        print(f"Hotkey: Updated to {self.keys}")
 
     def start(self):
         self.running = True
@@ -27,16 +47,14 @@ class HotkeyListener:
         
         while self.running:
             try:
-                ctrl_down = keyboard.is_pressed('ctrl')
-                shift_down = keyboard.is_pressed('shift')
-                space_down = keyboard.is_pressed('space')
-                is_down = ctrl_down and shift_down and space_down
+                # Check if ALL keys in self.keys are pressed
+                is_down = all(keyboard.is_pressed(key) for key in self.keys)
             except Exception as e:
                 print(f"Hotkey: Error checking keys: {e}")
                 is_down = False
             
             if is_down and not self.is_active:
-                print("Hotkey: Keys PRESSED - starting recording")
+                print(f"Hotkey: Keys PRESSED ({'+'.join(self.keys)}) - starting recording")
                 self.is_active = True
                 self.on_start()
             

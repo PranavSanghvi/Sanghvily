@@ -13,6 +13,7 @@ function App() {
   const [selectedModel, setSelectedModel] = useState(() => localStorage.getItem("selectedModel") || "whisper-large-v3-turbo")
   const [transcribedText, setTranscribedText] = useState("")
   const [appStatus, setAppStatus] = useState<'online' | 'offline' | 'error' | 'warning'>('online')
+  const [hotkey, setHotkey] = useState(() => localStorage.getItem("hotkey") || "ctrl+shift+space")
 
   // Model Prompts are now handled internally by ModelPrompts component
 
@@ -33,6 +34,8 @@ function App() {
     }
     // @ts-ignore
     window.electron.ipcRenderer.send('set-model', selectedModel);
+    // @ts-ignore
+    window.electron.ipcRenderer.send('set-hotkey', localStorage.getItem("hotkey") || "ctrl+shift+space");
   }, []) // Run once on mount to sync stored values
 
   // Persist History settings
@@ -159,6 +162,13 @@ function App() {
         return <GeneralSettings 
                   status={status} 
                   appStatus={appStatus}
+                  hotkey={hotkey}
+                  onHotkeyChange={(newHotkey) => {
+                    setHotkey(newHotkey)
+                    localStorage.setItem("hotkey", newHotkey)
+                    // @ts-ignore
+                    window.electron.ipcRenderer.send('set-hotkey', newHotkey)
+                  }}
                />
       case 'models':
         return <DictationModels 
